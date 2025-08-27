@@ -3,7 +3,7 @@ import shutil
 
 users = os.listdir(r"C:\Users")
 
-def Downloads_Organizer():
+def downloads_organizer():
     for user in users:
         downloads_path = os.path.join(r"C:\Users", user, "Downloads")
         if os.path.exists(downloads_path):
@@ -16,7 +16,6 @@ def Downloads_Organizer():
                     os.mkdir(file_type)
                 shutil.move(os.path.join(downloads_path, file), os.path.join(file_type, file))
 
-            
 def remove_duplicates():
     def scan_and_remove_duplicates(directory):
         items = os.listdir(directory)

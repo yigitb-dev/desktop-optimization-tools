@@ -11,10 +11,12 @@ def downloads_organizer():
             print(f"Contents of {downloads_path}: {files}")
 
             for file in files:
-                file_type = file.strip(".")[-1]
-                if not os.path.exists(file_type):
-                    os.mkdir(file_type)
-                shutil.move(os.path.join(downloads_path, file), os.path.join(file_type, file))
+                file_type = os.path.splitext(file)[1][1:]
+                folder_path = os.path.join(downloads_path, file_type)
+                if not os.path.exists(folder_path):
+                    os.mkdir(folder_path)
+                shutil.move(os.path.join(downloads_path, file), os.path.join(folder_path, file))
+
 
 def remove_duplicates():
     def scan_and_remove_duplicates(directory):

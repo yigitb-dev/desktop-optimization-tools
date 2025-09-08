@@ -42,3 +42,13 @@ def remove_duplicates():
                     else:
                         seen.add(item)
 
+def remove_empty_folders():
+    def remove_folders(directory):
+        items = os.listdir(directory)
+        if items == []:
+            os.remove(directory)
+        for item in items:
+            item_path = os.path.join(directory,item)
+            
+                
+

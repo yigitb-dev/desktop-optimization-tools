@@ -49,6 +49,9 @@ def remove_empty_folders():
             os.remove(directory)
         for item in items:
             item_path = os.path.join(directory,item)
-            
+            if os.path.isdir(item_path):
+                remove_folders() #Recursive Function no 2. I am GOATED
+
+         
                 
 

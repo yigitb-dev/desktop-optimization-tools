@@ -3,6 +3,8 @@ import shutil
 
 users = os.listdir(r"C:\Users")
 
+
+#Function to organize downloads folder by file type
 def downloads_organizer():
     for user in users:
         downloads_path = os.path.join(r"C:\Users", user, "Downloads")
@@ -17,7 +19,7 @@ def downloads_organizer():
                     os.mkdir(folder_path)
                 shutil.move(os.path.join(downloads_path, file), os.path.join(folder_path, file))
 
-
+#Function to remove duplicate files
 def remove_duplicates():
     def scan_and_remove_duplicates(directory):
         items = os.listdir(directory)
@@ -42,11 +44,13 @@ def remove_duplicates():
                     else:
                         seen.add(item)
 
+
+#Function to remove empty folders
 def remove_empty_folders():
     def remove_folders(directory):
         items = os.listdir(directory)
         if items == []:
-            os.remove(directory)
+            os.rmdir(directory)
         for item in items:
             item_path = os.path.join(directory,item)
             if os.path.isdir(item_path):
